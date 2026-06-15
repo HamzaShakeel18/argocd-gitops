@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: parent-app
+  name: guestbook-plain
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/HamzaShakeel18/argocd-gitops
     targetRevision: HEAD
-    path: argo/apps
+    path: argo/manifests/guestbook
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: practice
   syncPolicy:
     automated:
       prune: true
